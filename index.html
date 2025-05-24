@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        #game-container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+        #player-hint {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        input {
+            border: 1px solid #ccc;
+        }
+        button {
+            cursor: pointer;
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        #result {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess The Player</h1>
+    <div id="game-container">
+        <button onclick="startGame()">Play</button>
+        <p id="player-hint"></p>
+        <input type="text" id="guess" placeholder="Enter player name">
+        <button onclick="checkGuess()">Submit</button>
+        <p id="result"></p>
+    </div>
+    
+    <script>
+        const players = [
+            { name: "Messi", hint: "Greatest footballer from Argentina" },
+            { name: "Ronaldo", hint: "Portugal legend with most international goals" },
+            { name: "Neymar", hint: "Brazilian skill maestro" }
+        ];
+
+        let currentPlayer;
+
+        function startGame() {
+            currentPlayer = players[Math.floor(Math.random() * players.length)];
+            document.getElementById("player-hint").textContent = currentPlayer.hint;
+            document.getElementById("result").textContent = "";
+        }
+
+        function checkGuess() {
+            if (!currentPlayer) {
+                document.getElementById("result").textContent = "❌ Click 'Play' first!";
+                return;
+            }
+            
+            const userGuess = document.getElementById("guess").value.trim().toLowerCase();
+            if (userGuess === currentPlayer.name.toLowerCase()) {
+                document.getElementById("result").textContent = "🎉 Correct! You guessed it!";
+            } else {
+                document.getElementById("result").textContent = "❌ Try Again!";
+            }
+        }
+    </script>
+</body>
+</html>
