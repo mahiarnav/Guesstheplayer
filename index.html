@@ -3,136 +3,216 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Guess the Player - Trivia</title>
+  <title>Modern Web Main Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #111, #1e3c72);
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f9f9f9;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #00bcd4, #2196f3);
+      color: #fff;
+      padding: 140px 20px 100px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .service {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      width: 280px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-10px);
+    }
+
+    .service h3 {
+      margin-bottom: 10px;
+      color: #2196f3;
+    }
+
+    .contact {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .contact form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact input, .contact textarea {
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact button {
+      background: #2196f3;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #1e1e2f;
       color: #fff;
       text-align: center;
       padding: 20px;
     }
 
-    h1, h2, p {
-      margin: 20px 0;
-    }
+    @media (max-width: 768px) {
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
 
-    .lobby, .game {
-      max-width: 600px;
-      margin: auto;
-    }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-    .hidden {
-      display: none;
-    }
-
-    input[type="text"] {
-      padding: 12px;
-      font-size: 16px;
-      width: 80%;
-      border-radius: 5px;
-      border: none;
-      margin-top: 10px;
-    }
-
-    button {
-      padding: 12px 20px;
-      margin: 15px 10px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      background-color: #ffcc00;
-      color: #000;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #ffd633;
-    }
-
-    .feedback {
-      font-weight: bold;
-      margin-top: 15px;
-    }
-
-    footer {
-      margin-top: 50px;
-      font-size: 0.9em;
-      color: #aaa;
+      nav a {
+        margin: 5px 0;
+      }
     }
   </style>
 </head>
 <body>
 
-  <audio id="lobbyMusic" src="sounds/lobby.mp3" loop autoplay></audio>
-  <audio id="correctSound" src="sounds/correct.mp3"></audio>
-  <audio id="wrongSound" src="sounds/wrong.mp3"></audio>
+<header>
+  <nav>
+    <div><strong>Setting</strong></div>
+    
+    <div>
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    <div><strong><color #f1f1f1>Version - 0.1 </color></strong></div>
+      
+    </div>
+  </nav>
+</header>
 
-  <div class="lobby" id="lobby">
-    <h1>⚽ Guess the Player - Football Trivia</h1>
-    <p>Test your football knowledge. Are you a real fan?</p>
-    <button onclick="startGame()">Start Game</button>
+<section class="hero" id="hero">
+  <h1>🎉 Welcome to our Game</h1>
+  <p>Modern design. Smooth experience. Built with love. || only for you 🏆</p>
+</section>
+
+<section id="play">
+  <h2 class="section-title">Play 🎲</h2>
+  <div class="Play 🎲"></div>
+
+<section id="services">
+  <h2 class="section-title">Our Services</h2>
+  <div class="services">
+    <div class="service">
+      <h3>Game 🎮 </h3>
+      <p>Here You will able to meet to your friends who are also fan of ⚽</p>
+    </div>
+    <div class="service">
+      <h3>Development 📣 </h3>
+      <p>Easy to use || Fast and secure game using latest technologies</p>
+    </div>
+    <div class="service">
+      <h3>🎁 comming soon</h3>
+      <p>A event or something will comming soon || wait for it 🎃 </p>
+    </div>
   </div>
+</section>
 
-  <div class="game hidden" id="game">
-    <h2 id="question">Question appears here</h2>
-    <input type="text" id="answerInput" placeholder="Type your answer here..." />
-    <br>
-    <button onclick="submitAnswer()">Submit</button>
-    <button onclick="nextQuestion()">Skip</button>
-    <p class="feedback" id="feedback"></p>
+<section id="contact">
+  <h2 class="section-title">Contact Us For Help ⚽</h2>
+  <div class="contact">
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </div>
+</section>
 
-  <footer>
-    © 2025 Football Trivia Game
-  </footer>
+<footer>
+  <p>&copy; 2025Guesstheplayer. @all rights reserved</p>
+</footer>
 
-  <script>
-    const questions = [
-      { question: "Who won the Ballon d'Or first?", answer: "stanley matthews" },
-      { question: "Which team won the 2024 Champions League?", answer: "real madrid" },
-      { question: "Who is known as 'The Egyptian King'?", answer: "mohamed salah" },
-      { question: "Who scored the 'Hand of God' goal?", answer: "diego maradona" },
-      { question: "Which country won the 2018 World Cup?", answer: "france" }
-        { question: "Which player holds the record for the most goals scored in a calendar year?", answer: " Lionel Messi "
-
-
-
-    let currentQuestionIndex = 0;
-
-    function startGame() {
-      document.getElementById('lobby').classList.add('hidden');
-      document.getElementById('game').classList.remove('hidden');
-      document.getElementById('lobbyMusic').pause();
-      loadQuestion();
-    }
-
-    function loadQuestion() {
-      const q = questions[currentQuestionIndex];
-      document.getElementById('question').textContent = q.question;
-      document.getElementById('answerInput').value = '';
-      document.getElementById('feedback').textContent = '';
-    }
-
-    function submitAnswer() {
-      const input = document.getElementById('answerInput').value.trim().toLowerCase();
-      const correct = questions[currentQuestionIndex].answer;
-      if (input === correct) {
-        document.getElementById('feedback').textContent = "✅ Correct!";
-        document.getElementById('correctSound').play();
-      } else {
-        document.getElementById('feedback').textContent = "❌ Incorrect. Try again or skip.";
-        document.getElementById('wrongSound').play();
-      }
-    }
-
-    function nextQuestion() {
-      currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
-      loadQuestion();
-    }
-  </script>
 </body>
 </html>
-
