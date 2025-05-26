@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guess the player</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      overflow: hidden;
+      background: #000;
+      color: #fff;
+      animation: bgColorShift 30s linear infinite alternate;
+    }
+
+    @keyframes bgColorShift {
+      0%   { background: #0f0c29; }
+      15%  { background: #302b63; }
+      30%  { background: #24243e; }
+      45%  { background: #654ea3; }
+      60%  { background: #eaafc8; }
+      75%  { background: #1e3c72; }
+      90%  { background: #2a5298; }
+      100% { background: #0f0c29; }
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+    }
+
+    /* Container with animated color and glow */
+    .container {
+      position: relative;
+      z-index: 10;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 60px 100px;
+      border-radius: 25px;
+      box-shadow: 0 0 30px 8px rgba(255, 255, 255, 0.3);
+      text-align: center;
+      animation: containerColorShift 30s linear infinite alternate;
+      transition: box-shadow 0.3s ease;
+    }
+
+    @keyframes containerColorShift {
+      0%   { box-shadow: 0 0 40px 8px #ff3c78; }
+      15%  { box-shadow: 0 0 40px 8px #ff993c; }
+      30%  { box-shadow: 0 0 40px 8px #ffde3c; }
+      45%  { box-shadow: 0 0 40px 8px #3cffd1; }
+      60%  { box-shadow: 0 0 40px 8px #3c7aff; }
+      75%  { box-shadow: 0 0 40px 8px #993cff; }
+      90%  { box-shadow: 0 0 40px 8px #ff3caa; }
+      100% { box-shadow: 0 0 40px 8px #ff3c78; }
+    }
+
+    /* Title style with animated glowing color */
+    h1 {
+      font-size: 5rem;
+      color: #fff;
+      letter-spacing: 7px;
+      animation: textGlowShift 30s linear infinite alternate;
+      margin-bottom: 50px;
+      text-shadow: 0 0 20px #fff;
+    }
+
+    @keyframes textGlowShift {
+      0%   { color: #ff3c78; text-shadow: 0 0 20px #ff3c78, 0 0 40px #ff3c78; }
+      15%  { color: #ff993c; text-shadow: 0 0 20px #ff993c, 0 0 40px #ff993c; }
+      30%  { color: #ffde3c; text-shadow: 0 0 20px #ffde3c, 0 0 40px #ffde3c; }
+      45%  { color: #3cffd1; text-shadow: 0 0 20px #3cffd1, 0 0 40px #3cffd1; }
+      60%  { color: #3c7aff; text-shadow: 0 0 20px #3c7aff, 0 0 40px #3c7aff; }
+      75%  { color: #993cff; text-shadow: 0 0 20px #993cff, 0 0 40px #993cff; }
+      90%  { color: #ff3caa; text-shadow: 0 0 20px #ff3caa, 0 0 40px #ff3caa; }
+      100% { color: #ff3c78; text-shadow: 0 0 20px #ff3c78, 0 0 40px #ff3c78; }
+    }
+
+    /* Play button with animated gradient background and glow */
+    button {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      padding: 20px 70px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 900;
+      background: linear-gradient(270deg, #ff3c78, #ff993c, #ffde3c, #3cffd1, #3c7aff, #993cff, #ff3caa);
+      background-size: 1400% 1400%;
+      animation: btnGradientShift 20s ease infinite;
+      box-shadow: 0 0 25px #ff3c78;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    @keyframes btnGradientShift {
+      0%   { background-position: 0% 50%; box-shadow: 0 0 25px #ff3c78; }
+      16%  { background-position: 20% 50%; box-shadow: 0 0 30px #ff993c; }
+      33%  { background-position: 40% 50%; box-shadow: 0 0 35px #ffde3c; }
+      50%  { background-position: 60% 50%; box-shadow: 0 0 35px #3cffd1; }
+      66%  { background-position: 80% 50%; box-shadow: 0 0 35px #3c7aff; }
+      83%  { background-position: 100% 50%; box-shadow: 0 0 30px #993cff; }
+      100% { background-position: 0% 50%; box-shadow: 0 0 25px #ff3c78; }
+    }
+
+    button:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 40px 5px #fff;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 15px;
+      width: 100%;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.3);
+      user-select: none;
+      letter-spacing: 0.1em;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Guess the player</h1>
+    <button onclick="window.location.href='index2.html'">Play</button>
+  </div>
+
+  <footer>
+    &copy; All rights reserved
+  </footer>
+
+</body>
+</html>
