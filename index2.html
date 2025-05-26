@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Welcome to Guess the Player</title>
+  <style>
+    @keyframes backgroundShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes dance {
+      0%, 100% {
+        transform: translateY(0) scale(1);
+      }
+      50% {
+        transform: translateY(-10px) scale(1.05);
+      }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-weight: 700;
+      background: linear-gradient(-45deg, #ff6a00, #ee0979, #00d2ff, #3a1c71);
+      background-size: 400% 400%;
+      animation: backgroundShift 25s ease infinite;
+      color: #000000;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: rgba(255 255 255 / 0.9);
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    nav a {
+      color: #000000;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff6a00;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 40px;
+      color: #000000;
+      animation: dance 2s ease-in-out infinite;
+    }
+
+    .back-button {
+      background: #ff6a00;
+      color: #fff;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: background 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 15px #ff6a00;
+    }
+
+    .back-button:hover {
+      background: #cc5500;
+      box-shadow: 0 0 25px #cc5500;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto 80px;
+      padding: 0 20px 40px;
+    }
+
+    section.services {
+      margin-top: 40px;
+    }
+
+    section.services h2 {
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ff6a00;
+      padding-bottom: 5px;
+      color: #000000;
+    }
+
+    .service-item {
+      background: #fff;
+      color: #000000;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 25px rgba(255, 106, 0, 0.5);
+      background-color: #fff3e0;
+    }
+
+    .play-container {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0 60px 0;
+    }
+
+    .play-button {
+      background: #ff6a00;
+      color: #fff;
+      padding: 15px 60px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 20px rgba(255,106,0,0.7);
+    }
+
+    .play-button:hover {
+      background: #cc5500;
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(204,85,0,0.9);
+    }
+
+    footer {
+      text-align: center;
+      color: rgba(0,0,0,0.5);
+      padding: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #ff6a00;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #cc5500;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact Us</a>
+    <a href="#settings">Settings</a>
+  </nav>
+  <button class="back-button" onclick="history.back()">Back</button>
+</header>
+
+<main>
+  <h1 class="title">Guess the Player</h1>
+
+  <div class="play-container">
+    <!-- ✅ FINAL: This button now goes to index3.html -->
+    <button class="play-button" onclick="window.location.href='index3.html'">Play</button>
+  </div>
+
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    
+    <div class="service-item">
+      <h3>Player Profiles</h3>
+      <p>Get detailed profiles of famous football players, including stats, history, and achievements to help you guess right.</p>
+    </div>
+    
+    <div class="service-item">
+      <h3>Real-Time Challenges</h3>
+      <p>Play against friends or random challengers in real-time guessing games with live scoreboards and rankings.</p>
+    </div>
+    
+    <div class="service-item">
+      <h3>Daily Quizzes</h3>
+      <p>Engage with fun daily quizzes to test and improve your knowledge of football players worldwide.</p>
+    </div>
+  </section>
+
+<section id="contact" style="margin-top: 50px;">
+  <h2>Contact Us</h2>
+  <form action="mailto:guesstheplayer2025@gmail.com" method="POST" enctype="text/plain" style="max-width: 600px;">
+    <label for="name" style="display: block; margin-top: 10px; font-weight: bold;">Your Name:</label>
+    <input type="text" id="name" name="Name" required
+      style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc;">
+
+    <label for="message" style="display: block; margin-top: 15px; font-weight: bold;">Your Message:</label>
+    <textarea id="message" name="Message" rows="5" required
+      style="width: 100%; padding: 10px; margin-top: 5px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+
+    <button type="submit"
+      style="margin-top: 15px; padding: 12px 30px; background-color: #ff6a00; color: white; border: none; border-radius: 25px; font-weight: bold; cursor: pointer;">
+      Send
+    </button>
+  </form>
+</section>
+
+  <section id="settings" style="margin-top: 50px;">
+    <h2>Settings</h2>
+    <p>Adjust your preferences, notification settings, and account details to enhance your Guess the Player experience.</p>
+  </section>
+</main>
+
+<footer>
+  &copy; All rights reserved
+</footer>
+
+</body>
+</html>
